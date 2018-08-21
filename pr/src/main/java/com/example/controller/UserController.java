@@ -16,15 +16,22 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-/*
-@RequestMapping("/home")
-*/
+/*@RequestMapping("/home")*/
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user/", method = RequestMethod.POST)
-    public void createUser(@RequestBody User user) {
+    @ResponseBody
+    @RequestMapping(value = "/home/users", method = RequestMethod.POST)
+    public void createUser(@RequestBody User user)
+    {
         userService.saveUser(user);
     }
+
+    /*@ResponseBody
+    @RequestMapping(value = "http://localhost:4200", method = RequestMethod.GET)
+    public String getTest(@RequestParam (value="name", defaultValue = "hi") String name)
+    {
+        return userService.getT(name);
+    }*/
 }
