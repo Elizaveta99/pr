@@ -2,7 +2,7 @@ package com.example.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.model.Role;
@@ -12,20 +12,20 @@ import com.example.repository.UserRepository;
 import java.util.Arrays;
 import java.util.HashSet;
 
-@Service("userService")
+@Service/*("userService")*/
 public class UserServiceImpl implements UserService {
 
-    @Qualifier("userRepository")
+    // @Qualifier("userRepository")
     @Autowired
     private UserRepository userRepository;
 
-    @Qualifier("roleRepository")
+    // @Qualifier("roleRepository")
     @Autowired
     private RoleRepository roleRepository;
 
-    // @Autowired
-    // private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+   /* @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+*/
     @Override
     public User findUserByUsername(String username)
     {

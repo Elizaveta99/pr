@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.AuthUser;
 import com.example.model.User;
 import com.example.service.UserService;
 
@@ -22,10 +23,17 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping(value = "/home/users", method = RequestMethod.POST)
+    @RequestMapping(value = "/home", method = RequestMethod.POST)
     public void createUser(@RequestBody User user)
     {
         userService.saveUser(user);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    public void loginUser(@RequestBody AuthUser user)
+    {
+        //userService.saveUser(user);
     }
 
     /*@ResponseBody
