@@ -23,13 +23,14 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
+// @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
     @Autowired
     private UserService userService;
 
     @ResponseBody
     @RequestMapping(value = "/home", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
     public void createUser(@RequestBody User user)
     {
         userService.saveUser(user);

@@ -22,14 +22,14 @@ public class User {
     @Column(name = "firstname")
     private String firstname;
 
-    @Column(name = "secondname")
-    private String secondname;
+    @Column(name = "lastname")
+    private String lastname;
 
     @Column(name = "username")
     private String username;
 
     @Column
-    @JsonIgnore  /*???*/
+    // @JsonIgnore  /*???*/
     private String password;
 
     @Column
@@ -70,12 +70,12 @@ public class User {
         this.firstname = firstname;
     }
 
-    public String getSecondname() {
-        return secondname;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setSecondname(String secondname) {
-        this.secondname = secondname;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getUsername() {

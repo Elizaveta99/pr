@@ -7,7 +7,7 @@ import java.util.Set;
 public class UserDto {
     private int id;
     private String firstname;
-    private String secondname;
+    private String lastname;
     private String username;
     private String password;
     private Set<Role> roles;
@@ -28,12 +28,12 @@ public class UserDto {
         this.firstname = firstname;
     }
 
-    public String getSecondname() {
-        return secondname;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setSecondname(String secondname) {
-        this.secondname = secondname;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getUsername() {
