@@ -8,11 +8,10 @@ import com.example.model.User;
 
 import java.util.List;
 
-@Repository/*("userRepository")*/
+@Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByUsername(String username);
     User findById(int id);
-    // List<User> findAllById(List<Integer> ids);
     Iterable<User> findAll();
 }

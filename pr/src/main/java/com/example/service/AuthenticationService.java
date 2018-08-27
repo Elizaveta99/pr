@@ -54,12 +54,13 @@ public class AuthenticationService {
             if (authResult.isAuthenticated()) {
                 JwtUserDetails userDetails = (JwtUserDetails) authResult.getPrincipal();
 
-                User user = userRepository.findById(userDetails.getId().intValue());
+                // User user = userRepository.findById(userDetails.getId().intValue());
+                User user = userRepository.findById(userDetails.getId()/*.intValue()*/);
                 if (Objects.isNull(user)) {
                     throw new JsonException("User not exist in system.");
                 }
 
-                String token = this.authenticationHelper.generateToken(userDetails.getId());
+                String token = this.authenticationHelper.generateToken(Long.valueOf((userDetails.getId())));
 
                 return new LoginResponseDto(token);
             } else {

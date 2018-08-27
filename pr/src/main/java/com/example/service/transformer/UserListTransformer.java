@@ -12,7 +12,6 @@ public class UserListTransformer {
         dto.setId(user.getId());
         dto.setUsername(user.getUsername());
         dto.setRole(user.getRole().name());
-
         return dto;
     }
 }

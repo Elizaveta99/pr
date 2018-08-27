@@ -17,7 +17,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(name = "firstname")
     private String firstname;
@@ -29,7 +29,6 @@ public class User {
     private String username;
 
     @Column
-    // @JsonIgnore  /*???*/
     private String password;
 
     @Column
@@ -48,17 +47,11 @@ public class User {
         this.setPassword(inUser.getPassword());
     }
 
-    /*@ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="user_role",
-            joinColumns=@JoinColumn(name="user_id"),
-            inverseJoinColumns=@JoinColumn(name="role_id"))
-    private Set<Role> roles;*/
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -102,6 +95,4 @@ public class User {
         this.role = role;
     }
 
-    /*public Set<Role> getRoles() { return roles; }
-    public void setRoles(Set<Role> roles) { this.roles = roles; }*/
 }

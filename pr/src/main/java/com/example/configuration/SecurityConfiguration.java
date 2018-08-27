@@ -24,8 +24,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-/*import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;*/
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 
@@ -68,20 +66,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // .antMatchers("/home", "/register", "/login", "/auth/login").permitAll()
-                // .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                // .antMatchers(HttpMethod.POST, "/**").permitAll()
                 .antMatchers("/**")
                 .permitAll()
 
-                /*.and()
+                .and()
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
                 .and()
                 .logout()
                 .permitAll()
-*/
+
                 .and()
                 .csrf().disable()
                 .addFilterAfter(new JwtAuthenticationFilter(authenticationManagerBean()),
@@ -93,7 +88,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(final WebSecurity web) throws Exception {
         web.ignoring()
-                .antMatchers(HttpMethod.POST, allowedUrlsForPost /*"/**"*/)
+                .antMatchers(HttpMethod.POST, allowedUrlsForPost)
                 .antMatchers(HttpMethod.OPTIONS, "/**");
     }
 
