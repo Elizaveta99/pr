@@ -23,20 +23,4 @@ public class PrApplication {
     {
         SpringApplication.run(PrApplication.class, args);
     }
-
-    // ???
-    /*@Bean
-    CommandLineRunner bootstrap(final UserRepository userRepository, final BCryptPasswordEncoder passwordEncoder) {
-        return (args) -> {
-            userRepository.save(
-                    new User("eliz", passwordEncoder.encode("admin"), UserRole.ROLE_ADMIN)
-            );
-
-            userRepository.save(
-                    new User("John", passwordEncoder.encode("password"), UserRole.ROLE_USER)
-            );
-
-            // userRepository.findAll().stream().map(User::toString).forEach(System.out::println);
-        };
-    }*/
 }
